@@ -7,6 +7,7 @@
 // Creo il tasto Start e al suo interno le IMPLEMENTAZIONI
 const start = document.getElementById("start");
 start.addEventListener("click", function() {
+    
     // IMPLENTAZIONI
     const numberOfCells = 100;
 
