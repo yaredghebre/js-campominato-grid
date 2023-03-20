@@ -6,11 +6,28 @@
 // Implemento il tasto start per fare iniziare il gioco
 // Creo il tasto Start e al suo interno le IMPLEMENTAZIONI
 const start = document.getElementById("start");
+
 start.addEventListener("click", function() {
     
     // IMPLENTAZIONI
-    const numberOfCells = 100;
+    const level = parseInt(document.querySelector("select").value);
 
+    let numberOfCells;
+    switch(level) {
+    case 1:
+        numberOfCells = 100;
+        break;
+    case 2:
+        numberOfCells = 81;
+        break;
+    case 3: 
+        numberOfCells = 49;
+        break;
+    default:
+        numberOfCells = 100;
+}
+    console.log(level, numberOfCells);
+    
     // gli associo una funzione
     const numbers = generateArrayNumbers();
     console.log(generateArrayNumbers(numberOfCells));
@@ -19,7 +36,7 @@ start.addEventListener("click", function() {
     const grid = document.querySelector(".grid");
     // per eseguire il programma solo al primo click
     grid.innerHTML = "";
-    for (let i = 0; i < numbers.length; i++) {
+    for (let i = 0; i < numberOfCells; i++) {
         const currentNumber = numbers[i];
 
         // gli associo una funzione a entrambi
@@ -36,7 +53,7 @@ function generateArrayNumbers() {
     const arrayNumbers = [];
     for (let i = 1; i < 101; i++) {
         arrayNumbers.push(i);
-    }
+    } 
     return arrayNumbers;
 }
 
@@ -52,5 +69,6 @@ function manageCellClick() {
         this.classList.add("aqua");
         console.log(clickedCell);
     
-
 }
+
+
